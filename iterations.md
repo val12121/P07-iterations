@@ -1,4 +1,4 @@
-# Práctica 07. Iteraciones. Documentación de Código. Doxygen.
+# Práctica 07. Iteraciones. Git y GitHub. Estilo.
 
 # Factor de ponderación: 7
 
@@ -7,9 +7,7 @@ Los objetivos de esta práctica son que el alumnado:
 * Sea capaz de resolver problemas sencillos en C++ usando todos los conocimientos adquiridos hasta ahora, 
 y en particular haciendo uso de sentencias iterativas
 * Comience a utilizar funciones en sus programas y modularice sus programas en diferentes funciones
-* Conozca los fundamentos de la documentación de código
-* Conozca la herramienta Doxygen, las etiquetas definidas en JSDoc y sepa cómo utilizarlas para documentar su
-código
+* Estudie y conozca los fundamentos de trabajo con las herramientas Git y GitHub
 
 ### Rúbrica de evaluacion de esta práctica
 Se señalan a continuación los aspectos más relevantes (la lista no es exhaustiva) que se tendrán en cuenta a la hora de evaluar esta práctica.
@@ -17,12 +15,8 @@ Se comprobará que el alumnado:
 * Es capaz de escribir programas simples en C++ que resuelvan problemas de
   complejidad similar a los que se han propuesto para esta práctica
 * Hace que sus programas se estructuren en torno a diferentes funciones (sean modulares)
-* Utiliza en todos sus programas comentarios adecuados en el formato requerido por
-[Doxygen](https://www.doxygen.nl/index.html)
 * Ha automatizado la compilación de sus programas usando un fichero `Makefile`
   para cada uno de los programas que desarrolle 
-* Acredita que todas las prácticas realizadas hasta la fecha se encuentran alojadas en repositorios
-  privados de [GitHub](https://github.com/).
 * Acredita que es capaz de subir programas a la plataforma 
 [Jutge](https://jutge.org/)
 para su evaluación
@@ -32,200 +26,113 @@ para su evaluación
 * Acredita que es capaz de editar ficheros remotos en su VM usando vi
 * Demuestra que es capaz de ejecutar comandos Linux en su VM
 
-### Documentación de código 
-La documentación de una aplicación es cualquier texto que describa el programa a los usuarios del mismo.
-El usuario puede ser desde un programador hasta un usuario final del programa.
-Hay diferentes tipos de documentación: especificación de requisitos, manual de usuario, documento de diseño,
-documentación técnica, ...
-En esta asignatura nos centraremos en la documentación del código, que es parte de la documentación técnica.
+### Introducción a Git y GitHub
+[GitHub](https://github.com/)
+es un servicio en la nube con una interfaz web que ayuda a los desarrolladores a almacenar y administrar el código
+fuente de sus programas así como a llevar un registro y control de cualquier cambio que se realice sobre ese código. 
+[Git](https://git-scm.com/)
+es un sistema distribuido de control de versiones.
+En Git todo el código y su historial de cambios se encuentran disponibles en el ordenador del desarrollador.
+En la web se puede encontrar multitud de tutoriales sobre el uso de GitHub y git y
+[este](https://www.diegocmartin.com/tutorial-git/), por ejemplo puede ser un buen punto de comienzo para estudiar
+ambas herramientas.
+Esta [guía simple](https://rogerdudler.github.io/git-guide/) también puede ser útil para un uso inicial de ellas.
 
-Hay diversos motivos por los que escribir documentación es importante:
-* La documentación posibilita el seguimiento de todas las partes de un programa
-* Facilita el mantenimiento de la aplicación. Durante el ciclo de vida de una aplicación es muy frecuente que
-  haya que introducir cambios en la misma.
-* Posibilita que programadores que no sean el desarrollador puedan entender todos los aspectos del programa
-* Mejora la calidad general del software
-* Ayuda a la formación de otros programadores
-* En una organización, garantiza la descentralización del conocimiento, reduciendo los costes y el esfuerzo si los desarrolladores abandonan el proyecto de forma imprevista 
+A la hora de estudiar estas herramientas ha de tener en cuenta que el uso que en esta asignatura se va a
+realizar de las mismas es básico: inicialmente cada estudiante va a utilizar git/GitHub exclusivamente para almacenar el
+código fuente de cada una de las prácticas y ejercicios de programación que desarrolle.
+No se pretende que compartan código a través de git ni que colaboren en el desarrollo de código usando estas
+herramientas.
+También ha de tener en cuenta que un entorno de desarrollo colaborativo de programas es el escenario más
+habitual y en el que estas herramientas muestran su relevancia.
 
-Todos los programas deben estar comentados de modo que describan fácilmente la finalidad del código y cualquier 
-algoritmo utilizado para lograr el propósito. 
-Un usuario debería ser capaz de utilizar un programa (o función) previamente escrito sin tener que estudiar 
-en detalle el código, simplemente leyendo los comentarios.
+Para crear un repositorio de código hay básicamente dos opciones: clonar (copiar) un repositorio 
+(que ha de ser público) del que se conozca su dirección o bien crear uno partiendo de cero.
+Mostraremos a continuación la primera de estas opciones, que será la más habitual 
+en las prácticas de *Informática Básica* puesto que
+con cada una de las siguientes prácticas el profesorado le entregará el enlace a un repositorio público que
+Ud. tendrá que clonar haciendo una copia privada del mismo para su trabajo.
 
-Los comentarios son el "arte" de describir en lenguaje natural (inglés, español, etc.) lo que el programa
-hace.
-Lo mejor es comentar **antes** de escribir el código del programa.
+Antes de comenzar a trabajar ahora con Git, añada la clave ssh de su máquina virtual Linux a su cuenta GitHub.
+Esta tarea es posible que la realizara en la primera práctica de la asignatura, pero en caso contrario ha de
+hacerlo Ud. ahora siguiendo 
+[estas instrucciones](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/adding-a-new-ssh-key-to-your-github-account).
+En esa página siga el enlace 
+[Generated a new SSH key and added it to the ssh-agent](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent)
+para generar una clave ssh en su máquina virtual (también puede hacer lo mismo con otros sistemas Linux con
+los que trabaje habitualmente, como su instalación de VirtualBox o WSL).
+También la sección "Trabajando con Git en Remoto" del
+[tutorial de Diego Martín](https://www.diegocmartin.com/tutorial-git/) 
+puede serle de ayuda para configurar la clave ssh.
 
-Los comentarios son líneas de texto especialmente marcadas en el programa que no se evalúan. 
-Tal como se ha estudiado, los comentarios en C++ son eliminados por el preprocesador: el programa que el compilador
-evalúa (compila) carece de comentarios. Dicho de otro modo: los comentarios se escriben para ser leídos por
-personas, no para el compilador.
-Tal como se ha estudiado, hay dos formas sintácticas de comentar. 
-La primera se llama comentario de una sola línea y sólo se aplica a una única línea en el código fuente. 
-La segunda se denomina comentario de bloque y suele referirse a un párrafo de texto (como los comentarios
-"prólogo" que se colocan al principio de cualquier fichero con código fuente).
-Un comentario de bloque tiene un símbolo de inicio y un símbolo de fin y todo lo que hay entre ellos es ignorado por compilador.
+[Estas instrucciones](https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
+explican cómo clonar un repositorio una vez obtenida su dirección en GitHub.
 
-#### Dónde comentar
-Los comentarios deben aparecer en los siguientes puntos de un programa:
-* Al comienzo de cualquier fichero de código.
-A estos se les llama "Comentarios de cabecera". 
-Debe incluir toda la información definitoria sobre quién escribió el código, por qué, cuándo, y qué debe hacer el programa. 
-* Previo a cada función del programa.
-Se denomina cabecera de la función y proporciona información sobre el propósito de la función en cuestión.
-Si sólo hay una función en un fichero, los comentarios de la cabecera de la función y de la cabecera del fichero
-deben fusionarse en un único comentario. 
-* Comentarios de línea.
-Cualquier código "complicado" en el que no sea inmediatamente obvio lo que está tratando de lograr, debería tener 
-comentarios justo encima o en la misma línea que él.
+para clonar el repositorio de esta práctica, cuya dirección es `git@github.com:IB-2023-2024/P05-expressions.git`
+en su máquina virtual Ubuntu de la asignatura acceda al directorio en el que esté organizando sus
+prácticas y ejecute:
+```
+$ git clone git@github.com:IB-2023-2024/P05-expressions.git practica05-expressions
+```
+En ese comando, el segundo parámetro (`practica05-expressions`) es el nombre del directorio donde se incluirá
+el contenido del repositorio que se está copiando.
+Puede usar Ud. ese nombre u otro que le parezca adecuado.
+El primer parámetro es la dirección del repositorio que ha de ser público para poder copiarlo.
+Una vez ejecutado el comando, acceda al directorio `practica05-expressions` y examine el contenido del mismo.
 
-#### Cómo no comentar
-Los comentarios deben ser descripciones útiles de lo que hace el programa. 
-No deben repetir algo que es "obvio" leyendo el código. 
-Utilizando identificadores adecuados, la mayor parte de un programa no precisa comentarios adicionales.
-Particularmente se minimiza en este caso la necesidad de comentarios "de línea".
+GitHub utiliza profusamente ficheros de texto con formato Markdown, que suelen tener la extensión `.md`
+El fichero `README.md` es un fichero de texto (compruébelo con el comando `file`) en formato Markdown.
+Markdown es un lenguaje de marcas que permite aplicar formato (negrita, itálicas, imágenes, listas, etc.) a un
+fichero de texto.
+Este texto que está Ud. leyendo está escrito asimismo en un fichero con formato Markdown, y es uno de los que
+ha descargado.
+El formato fue ideado para elaborar textos cuyo destino iba a ser la web con más rapidez y sencillez que si se
+empleara HTML.
 
-### Doxygen
-[Doxygen](https://en.wikipedia.org/wiki/Doxygen) 
-es una herramienta de código abierto que permite generar documentación de referencia para proyectos de desarrollo software. 
-Una ventaja de Doxygen es que la documentación está escrita en el propio código fuente de los programas, y por lo tanto es relativamente fácil de mantener actualizada. 
-Doxygen puede hacer referencias cruzadas entre la documentación y el código, de modo que el lector de un documento puede referirse fácilmente al código fuente.
-La herramienta extrae la documentación de los comentarios presentes en los ficheros de código fuente y puede generar la salida en diferentes formatos entre los cuales están HTML, PDF, LaTeX o páginas `man` de Unix.
+No es neceario que aprenda Markdown en esta asignatura, pero si tiene interés en ello, la referencia 
+[Qué es Markdown, para qué sirve y cómo usarlo](https://www.genbeta.com/guia-de-inicio/que-es-markdown-para-que-sirve-y-como-usarlo)
+puede servirle de introducción.
+[Este tutorial](https://guides.github.com/features/mastering-markdown/) es útil para un
+conocimiento más profundo y por último 
+[StackEdit](https://stackedit.io/) es un editor de Markdown con una interfaz web, que puede resultarle igualmente útil.
 
-En *Informática Básica* no se propone un uso exhaustivo de Doxygen pero **sí se requiere que la
-documentación de los programas desarrollados se realice en el formato reconocido por Doxygen**, que se ha
-convertido en un estándar de facto.
+A continuación ya está todo listo para que acceda al directorio de trabajo de esta práctica (el directorio que
+en este documento se ha llamado `practica05-expressions`) y desarrolle en él todos los ejercicios de esta
+práctica.
+Dentro de ese directorio cree subdirectorios para cada uno de los ejercicios de la práctica.
+Ahora todo el trabajo ha de realizarlo de la forma habitual, editando sus programas dentro de ese
+directorio y realizando todas las pruebas que considere oportunas.
+Después de cada sesión de trabajo recuerde "subir" sus cambios a la nube de GitHub.
+Para ello, y después de borrar del directorio los ficheros que no desee retener (ficheros ejecutables, o con
+código binario), la secuencia habitual de comandos `git` a ejecutar suele ser la siguiente:
+```
+$ git pull
+$ git add .
+$ git commit -m "Texto alusivo a los cambios realizados"
+$ git push
+```
+* El primero de los comandos anteriores, `git pull` es siempre conveniente porque de ese modo se asegura que se descarga 
+localmente la última versión del código que esté alojado en la nube de GitHub.
+* `git add .` actualiza el índice de git con el contenido del directorio actual (nótese el punto -directorio
+  actual, el de trabajo- en el comando).
+* `git commit` registra el el repositorio los cambios que se hayan realizado. A esos cambios les asocia el
+mensaje de texto que aparece en el comando. 
+* `git push` Actualiza (sube los cambios a la nube) el repositorio en la nube.
 
-Comience por instalar Doxygen en su máquina virtual de la asignatura:
-```
-$ sudo apt install doxygen
-```
-Instale también los siguientes paquetes:
-```
-$ sudo apt install texlive-latex-base
-$ sudo apt install texlive-latex-recommended
-$ sudo apt install texlive-latex-extra
-```
-Estos paquetes son necesarios para compilar ficheros en formato [LaTeX](https://es.wikipedia.org/wiki/LaTeX).
-Más adelante en este documento se justifica la necesidad de los programas que suministran estos paquetes.
+Esta secuencia de comandos git debiera Ud. usarla con relativa frecuencia (al finalizar cada ejercicio, al
+menos) para guardar copia de su trabajo en su repositorio privado.
 
-En el [manual de Doxygen](https://www.doxygen.nl/manual/starting.html) se indica cómo comenzar a trabajar con la herramienta.
-Si, ubicados en un directorio de trabajo, se invoca:
-```
-doxygen -g <config-file>
-```
-la herramienta creará un fichero de configuración.
-Si no se le pasa el nombre del fichero (*config-file*) como parámetro, creará un fichero con nombre `Doxyfile` preconfigurado para su uso.
-En el directorio de trabajo de esta práctica (`src`) se encuentra un fichero `Doxyfile` ya listo para usarse con proyectos de C++.
-Se ha incluído asimismo en ese directorio el código fuente de un programa para ilustrar con el mismo el uso de documentación con Doxygen.
-Si revisa el fichero `Doxyfile` (es un fichero de texto) verá un conjunto de opciones que el programa permite.
-Cada opción va precedida de una explicación de su finalidad y funcionamiento, de modo que puede probar a modificar algunas de ellas si lo desea.
-En [esta página](https://www.doxygen.nl/manual/config.html) puede consultarse la finalidad y funcionamiento de cada una de las etiquetas (tags) que se usan en el fichero de configuración de Doxygen.
+Explicaciones más detalladas de este *workflow* (flujo de trabajo) las puede hallar en el primer
+[tutorial](https://www.diegocmartin.com/tutorial-git/)
+que se propone en este documento.
 
-Para generar la documentación de su aplicación, colóquese en el directorio de su proyecto (`src` en esta práctica) y ejecute:
-```
-doxygen Doxyfile
-```
-Con el fichero `Doxyfile` que se suministra, la herramienta creará un subdirectorio `doc` en el directorio 
-raíz de su proyecto en el que alojará toda la documentación generada.
-El directorio donde Doxygen genera su salida se especifica con la etiqueta `OUTPUT_DIRECTORY` 
-(línea `61` del fichero `Doxyfile` suministrado).
-Con la configuración suministrada se generan 2 subdirectorios dentro de `doc`: `html` y `latex`.
-Si se coloca en el directorio `doc/latex/` y ejecuta `make` el sistema "compila" el código LaTeX y 
-genera un fichero `refman.pdf` que contiene la documentación generada.
-Observe en este caso el uso de `make` con un fichero `Makefile` no para compilar un programa sino para generar
-un fichero `pdf` a partir del código (texto) LaTeX.
-Si trabaja en su máquina virtual, traiga el fichero `refman.pdf` hacia su máquina local y visualice su
-contenido.
+La otra alternativa para crear un repositorio es crearlo directamente mediante la interfaz web de GitHub.
+Si quiere probar esta otra posibilidad, acceda a su cuenta GitHub y siga 
+[estas instrucciones](https://docs.github.com/en/free-pro-team@latest/github/getting-started-with-github/create-a-repo)
+para crear un repositorio en su cuenta de GitHub.
+Elija un nombre adecuado para su repositorio (en lugar de `hello-world`).
+Haga que su repositorio sea privado.
 
-Si abre con un navegador el fichero `doc/html/index.html` accederá a la página principal de la documentación generada para el programa.
-En su máquina virtual no va a poder abrir un navegador para explorar los ficheros del directorio `doc/html`.
-Lo que ha de hacer es o bien generarlos en su instalación Linux local o bien traer el contenido del directorio `doc` desde
-su máquina virtual IaaS hacia su máquina local y en la máquina local abrir con un navegador el fichero `doc/html/index.html`.
-
-Tal como se ha indicado, HTML o LaTeX son solo 2 de los formatos que permite generar Doxygen.
-Tanto HTML como LaTeX (también 
-[Markdown](https://es.wikipedia.org/wiki/Markdown)) 
-son lo que se conoce como 
-[lenguajes de marcas](https://es.wikipedia.org/wiki/Lenguaje_de_marcado).
-HTML es el lenguaje que se utiliza para componer los textos que se muestran en las páginas web.
-[Latex](https://en.wikipedia.org/wiki/LaTeX) 
-es un sistema de composición de textos que cuida el formato en especial en el ámbito de la tipografía y que es especialmente adecuado para textos de carácter científico.
-No se pretende aquí que profundice en conocer HTML o LaTeX.
-
-La sección [Documenting the code](https://www.doxygen.nl/manual/config.html) del manual de Doxygen indica cómo comentar el código fuente de modo que los comentarios sean procesados por Doxygen para incorporarlos a la documentación generada.
-
-La guía [Documenting C++ Code](https://developer.lsst.io/cpp/api-docs.html) de documentación de código del proyecto LLST es la referencia que se adoptará en la asignatura para documentar el código de los programas que se desarrollen.
-Se utilizarán comentarios de tipo JavaDoc para comentarios de bloque:
-```
-/**
- * ... text comment ...
- */
-```
-[JavaDoc](https://en.wikipedia.org/wiki/Javadoc) es otro sistema de documentación ideado para Java y que también es muy popular. 
-Doxygen soporta el uso de etiquetas "al estilo Javadoc" en el código.
-
-Los bloques de comentarios multi-línea deben comenzar con 
-```
-/** 
-```
-y finalizar con
-```
-*/
-```
-Los comentarios de una única línea deben comenzar con `///`.
-Por consistencia no use las opciones 
-
-```
-/*!
-```
-o
-```
-//!
-```
-permitidas en Doxygen.
-
-Así el 
-[bloque de comentarios](https://jsdoc.app/tags-description.html)
-que debe preceder a cualquier función (o método) debiera tener una apariencia similar a esta:
-```
-/**
- * Sum numbers in a vector
- *
- * @param values Container whose values are summed
- * @return sum of `values`, or 0.0 if `values` is empty
- */
-double SumValues(const std::vector<double>& values) {
-  ...
-}
-```
-En el ejemplo anterior `@param` y `@return` son etiquetas de tipo Javadoc.
-En 
-[Overview of supported JavaDoc style tags](http://www.time2help.com/doc/online_help/idh_java_doc_tag_support.htm) 
-pueden consultarse este tipo de etiquetas.
-
-El siguiente es un ejemplo (plantilla) de comentario de bloque que debería incluirse al comienzo de todos los ficheros (`*.cc`, `*.h`) de un proyecto de programación en el ámbito de esta asignatura:
-``` .cpp
-/**
-  * Universidad de La Laguna
-  * Escuela Superior de Ingeniería y Tecnología
-  * Grado en Ingeniería Informática
-  * Informática Básica 2022-2023
-  *
-  * @author Albert Einstein aeinstein@ull.edu.es
-  * @date Oct 12 2022
-  * @brief El programa calcula la suma de todos los términos de valor par de la serie
-  *        de Fibonacci que sean menores que un valor dado.
-  *        Cada nuevo término de la serie se genera sumando los dos anteriores.
-  *        Comenzando con 0 y 1, los primeros 10 términos serán: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34
-  * @bug There are no known bugs
-  * @see https://www.cs.cmu.edu/~410/doc/doxygen.html
-  */
-```
-Todo fichero debiera contener (etiqueta `@brief`) una breve descripción del contenido del fichero.
-Si fuera necesario se incluirá a continuación una descripción más detallada.
-Obviamente el comentario específico debiera particularizarse para cada caso concreto.
 
 ### Material de estudio complementario
 Estudie todo lo que se indica en el epígrafe 

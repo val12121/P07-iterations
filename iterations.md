@@ -188,7 +188,7 @@ la finalidad del programa en cuestión.
 La función *CheckCorrectParameters()* devolverá `true` si al programa se le han pasado el número adecuado de
 parámetros por línea de comandos (3 en el ejemplo anterior) y `false` en caso contrario.
 Estude el programa 
-[check-correct-parameters.cc](https://github.com/IB-2022-2023/IB-class-code-examples/blob/master/Functions/check-correct-parameters.cc)
+[check-correct-parameters.cc](https://github.com/IB-2023-2024/IB-class-code-examples/blob/master/Functions/check-correct-parameters.cc)
 de los ejemplos de código de las clases de teoría que ilustra el uso de estas dos funciones.
 
 ### Ejercicios

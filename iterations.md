@@ -1,4 +1,4 @@
-# Práctica 07. Iteraciones. Git y GitHub. Estilo.
+# Práctica 07. Iteraciones. Git y GitHub.
 
 # Factor de ponderación: 7
 
@@ -137,8 +137,7 @@ Haga que su repositorio sea privado.
 ### Material de estudio complementario
 Estudie todo lo que se indica en el epígrafe 
 [Comments](https://google.github.io/styleguide/cppguide.html#Comments) 
-de la Guía de Estilo de Google y ponga en práctica todo lo que en ella se propone, usando el formato Doxygen y
-etiquetas JSDoc para todos los comentarios de su código fuente.
+de la Guía de Estilo de Google y ponga en práctica todo lo que en ella se propone.
 
 Estudie del
 [tutorial de referencia](https://www.learncpp.com/)

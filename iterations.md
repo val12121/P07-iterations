@@ -72,13 +72,13 @@ para clonar el repositorio de esta práctica, cuya dirección es `git@github.com
 en su máquina virtual Ubuntu de la asignatura acceda al directorio en el que esté organizando sus
 prácticas y ejecute:
 ```
-$ git clone git@github.com:IB-2023-2024/P05-expressions.git practica05-expressions
+$ git clone git@github.com:IB-2023-2024/P07-iterations.git practica07-iterations
 ```
-En ese comando, el segundo parámetro (`practica05-expressions`) es el nombre del directorio donde se incluirá
+En ese comando, el segundo parámetro (`practica07-iterations`) es el nombre del directorio donde se incluirá
 el contenido del repositorio que se está copiando.
 Puede usar Ud. ese nombre u otro que le parezca adecuado.
 El primer parámetro es la dirección del repositorio que ha de ser público para poder copiarlo.
-Una vez ejecutado el comando, acceda al directorio `practica05-expressions` y examine el contenido del mismo.
+Una vez ejecutado el comando, acceda al directorio `practica07-iterations` y examine el contenido del mismo.
 
 GitHub utiliza profusamente ficheros de texto con formato Markdown, que suelen tener la extensión `.md`
 El fichero `README.md` es un fichero de texto (compruébelo con el comando `file`) en formato Markdown.
@@ -97,7 +97,7 @@ conocimiento más profundo y por último
 [StackEdit](https://stackedit.io/) es un editor de Markdown con una interfaz web, que puede resultarle igualmente útil.
 
 A continuación ya está todo listo para que acceda al directorio de trabajo de esta práctica (el directorio que
-en este documento se ha llamado `practica05-expressions`) y desarrolle en él todos los ejercicios de esta
+en este documento se ha llamado `practica07-iterations`) y desarrolle en él todos los ejercicios de esta
 práctica.
 Dentro de ese directorio cree subdirectorios para cada uno de los ejercicios de la práctica.
 Ahora todo el trabajo ha de realizarlo de la forma habitual, editando sus programas dentro de ese

@@ -16,7 +16,30 @@
 #include <iostream>
 #include <cmath>
 
-void BinarioDecimal(int num_binario) {
+void PrintProgramPurpose() {
+  std::cout << "Any program should start its execution with an informative message" << std::endl;
+  std::cout << "(like this) that informs the user about the purpose of the program." << std::endl;
+  std::cout << "After printing that message, the program should check that the user" << std::endl;
+  std::cout << "has provided the correct number of parameters to the program." << std::endl << std::endl;
+}
+
+bool CheckCorrectParameters(const int argc, char *argv[], const int kCorrectNumber) {
+  if (argc != kCorrectNumber) {
+    std::cout << "This program has been executed with a wrong number of parameters" << std::endl << std::endl;
+    std::cout << "This program should be called" << argv[0] << " param1 param2" << std::endl;
+    std::cout << "param1: " << " An integer number meaning bla, bla, bla" << std::endl;
+    std::cout << "param2: " << " A string representing la, bla, bla" << std::endl;
+    return false;
+  }
+  return true;
+}
+
+void BinarioDecimal(int argc, char* argv[], int num_binario) {
+
+  PrintProgramPurpose();
+  if (!CheckCorrectParameters(argc, argv, 1)) {
+    exit;
+  }
 
   int resultado = 0;
   int resto = 0;
@@ -51,6 +74,8 @@ int main() {
 
   int numero;
   std::cin >> numero;
+
+  std::cout << "Everything is fine!. Lets continue with the normal execution..." << argc << std::endl;
 
   BinarioDecimal(numero);
 
